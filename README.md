@@ -8,7 +8,7 @@ The `keyof` operator takes an objet type and produces a string or numeric litera
 ##### Example
 ``` typescript 
 type User {
-Name: string
+  Name: string
 	Key: string
 }
 type Admin {
