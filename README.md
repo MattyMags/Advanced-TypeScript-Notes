@@ -50,4 +50,22 @@ const users = [
 ];
 const youngUsers = filterBelowAge(users, 10);
 youngUsers.map(user => user.name);
+
+/**
+ * Result:
+ *['Gabriel']
+ */
+```
+Now lets say we want to generalize the above function to take any object as long as it has the `age:number` property. 
+To solve this problem, we need a new TypeScript feature: generic constraints. Constraints let us say "this can be any type... as long as it's compatible with this other type". In our case, we want our function to take and return arrays of any type that's compatible with `{age: number}`.
+
+We do this by adding the generic constraint <T extends {age: number}>. In TypeScript, we can always add extends ... to a generic type parameter. Anywhere we can write <T>, we can also write <T extends ...>.
+
+``` typescript 
+function filterBelowAge<T extends {age: number}>(
+  things: Array<T>,
+  limit: number
+): Array<T> {
+  return things.filter(thing => thing.age < limit);
+}
 ```
