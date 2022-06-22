@@ -5,7 +5,7 @@ Union = Multiple typings i.e `string | number | boolean'
 ### Keyof:
 The `keyof` operator takes an objet type and produces a string or numeric literal union of its keys.
 
-###### Example
+##### Example
 ``` typescript 
 type User {
 	Name: string
@@ -30,9 +30,7 @@ function getProperty<T>(obj: T, propertyName: keyof T) {
 ```
 ### Generic Constraints
 
-Constraints let us say 'this can be any type... as long as it's comatible with this other type'
-
-###### Example
+##### Example
 Suppose that we want a function that gives us only the users under a certain age. It takes a User[] and a number as the age limit, then returns a User[].
 ``` javascript
 type User = {
