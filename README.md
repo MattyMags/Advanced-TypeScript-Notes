@@ -65,5 +65,5 @@ function filterBelowAge<T extends {age: number}>(
   limit: number
 ): Array<T> {
   return things.filter(thing => thing.age < limit);
-}
+} 
 ```
