@@ -9,11 +9,12 @@ The `keyof` operator takes an objet type and produces a string or numeric litera
 ``` typescript 
 type User {
   Name: string
-	Key: string
+  Key: string
 }
 type Admin {
-	isAdmin: boolean
+  isAdmin: boolean
 }
+
 const key: keyof User = ‘name’ 
 console.log(key)  > ‘name’
 
