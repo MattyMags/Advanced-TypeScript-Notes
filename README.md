@@ -3,7 +3,7 @@
 ### General Vocab
 `union` = Multiple typings i.e `string | number | boolean'
 
-`extends` = We can think of `extends` as `is a kind of`. For example, 'Ms. Fluff extends string` is `true` because literal string types are a kind of string. But `number extends string` is false because numbers aren't a kind of string.
+`extends` = We can think of `extends` as `is a kind of`. For example, `Ms. Fluff extends string` is `true` because literal string types are a kind of string. But `number extends string` is false because numbers aren't a kind of string.
 
 
 ### RECURSIVE TYPES
