@@ -125,6 +125,45 @@ type ReplaceNumberPropertiesWithNull<T> = {
 type IconName = keyof typeof icons;
 ```
 
+### ASSERTION FUNCTIONS
+Assertion functions throw an error unless some condition is true. When we call one, TypeScript knows that the asserted condition must be true after that point.
+
+``` typescript
+
+function assert(cond: boolean): asserts cond {
+  if (!cond) {
+    throw new Error('Failed');
+  }
+}
+
+assert(typeof numberOrString === 'number');
+
+/* `numberOrString` was a `number | string`.
+ * After our assertion, it's narrowed to just
+ * `number`. */
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### General Vocab
 Union = Multiple typings i.e `string | number | boolean'
 
