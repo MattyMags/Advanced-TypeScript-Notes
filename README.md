@@ -174,8 +174,8 @@ function assertNumber(n: unknown): asserts n is number {
 
 
 ### General Vocab
-Union = Multiple typings i.e `string | number | boolean'
-
+union = Multiple typings i.e `string | number | boolean'
+extends = We can think of `extends` as `is a kind of`. For example, 'Ms. Fluff extends string` is `true` because literal string types are a kind of string. But `number extends string` is false because numbers aren't a kind of string.
 ### Keyof:
 The `keyof` operator takes an objet type and produces a string or numeric literal union of its keys.
 
