@@ -158,9 +158,20 @@ function assertNumber(n: unknown): asserts n is number {
 
 ```
 
+### ANY & UNKOWN
+- `any` is unsafe in 99.9% of TypeScript code.
+- The only safe use of `any` is in generic constraints, like `<A extends Array<any>>`.
+- But we can also use `unknown` there, like `<A extends Array<unknown>>`. An `unknown` is better than any because it's less likely to surprise other programmers reading our code.
 
 
-
+``` typescript
+/* The `any` here is safe. This means "A can be
+ * any array type, no matter what type it
+ * contains. */
+type ItemsObject<A extends Array<any>> = {
+  items: A
+};
+```
 
 
 
