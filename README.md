@@ -112,8 +112,18 @@ type ReplaceNumberPropertiesWithNull<T> = {
 };
 ```
 
+### KEYOF WITH TYPEOF
+`keyof` and `typeof` are often used together. We can use them to get a type for the object keys of an existing variable.
+ 
+ ``` typescript
+ const icons = {
+  rightArrow: 'fake right arrow image',
+  billing: 'fake billing image',
+};
 
-
+// This is 'rightArrow' | 'billing'.
+type IconName = keyof typeof icons;
+```
 
 ### General Vocab
 Union = Multiple typings i.e `string | number | boolean'
