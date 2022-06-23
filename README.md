@@ -1,4 +1,97 @@
-# Advanced TS Notes
+# Advanced TS Notes - Quick Overview
+
+### RECURSIVE TYPES
+Types can be recursive: they can refer to themselves.
+
+``` typescript
+type Nested = number | Nested[];
+const n: Nested = [[[[1]], 2, [3]]];
+```
+
+### KEYOF
+The `keyof` operator gives us an object type's keys as a union of literal string types.
+
+``` typescript
+type User = {
+  name: string
+  age: number
+};
+
+// This is a 'name' | 'age'.
+type UserKey = keyof User;
+```
+
+### GENERIC CONSTRAINTS
+Constraints force a generic type parameter to extend some other type. This lets us introduce limitations like "this function is generic, but the parameter must be an object with an age parameter".
+
+``` typescript
+/* `filterByAge` works with arrays of any
+ * object type, as long as it has an
+ * `age: number` property. */
+function filterByAge<T extends {age: number}>(
+  things: Array<T>,
+  max: number
+): Array<T> {
+  return things.filter(
+    thing => thing.age < max
+  );
+}
+```
+
+### TYPE PREDICATES
+Type predicates allow us to write our own type guard functions. They have `someArgument is SomeType` in place of a regular return value.
+
+``` typescript
+const address: Address | undefined =
+  getAddress();
+
+function isAddress(
+  address: Address | undefined
+): address is Address {
+  return address !== undefined;
+}
+
+if (isAddress(maybeAddr)) {
+  /* In here, the type of `address` is
+   * `Address`. */
+}
+
+/* Down here, the type of `address` is
+ *`Address | undefined` again. */
+ ```
+ 
+ ### TYPEOF
+ The `typeof` operator gives us the static type of a variable, function, class, etc.
+
+``` typescript
+const one: number = 1;
+// This type is `number`.
+const two: typeof one = 2;
+```
+
+### MAPPED TYPES
+Mapped types turn one object type into another. They "map over" the property types, replacing them with new types. It's similar to how an array's map method maps over array elements, except on types instead of runtime values.
+
+``` typescript
+type User = {
+  email: string
+};
+
+// This type is {email: Array<string>}.
+type UserAggregate = {
+  // This is the mapped type.
+  [K in keyof User]: Array<User[K]>
+};
+```
+
+
+
+
+
+
+
+
+
 ### General Vocab
 Union = Multiple typings i.e `string | number | boolean'
 
