@@ -83,10 +83,19 @@ type UserAggregate = {
   [K in keyof User]: Array<User[K]>
 };
 ```
+### UNIONS WITH NEVER
+A `union` with `never` has no effect. `T | never` is always just `T`.
 
 
+``` typescript 
 
+function returnNumberOrNever(): number | never {
+  return 1;
+}
 
+// The return type of the function is `number`.
+const n: number = returnNumberOrNever();
+```
 
 
 
