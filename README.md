@@ -140,7 +140,16 @@ assert(typeof numberOrString === 'number');
 
 /* `numberOrString` was a `number | string`.
  * After our assertion, it's narrowed to just
- * `number`. */
+ * `number`. 
+ */
+ 
+// Number Assertion Example
+function assertNumber(n: unknown): asserts n is number {
+  if (typeof n !== 'number') {
+    throw new Error("Value wasn't a number: " + n);
+  }
+}
+
 ```
 
 
