@@ -99,6 +99,14 @@ const n: number = returnNumberOrNever();
 ### CONDITIONAL/MAPPED TYPES
 Conditional types have one of two types, depending on whether a certain certain condition is true. The condition is evaluated at compile time, not at runtime. TypeScript only supports conditions that use `extends`, like `T extends string`.
 ``` typescript
+// Simple Conditional
+type WrapStringInArray<T> =
+  T extends string ? Array<string> : T;
+
+// The type here is `Array<string>`.
+const s: WrapStringInArray<string> = ['hello'];
+
+// Conditional Mapping
 type ReplaceNumberPropertiesWithNull<T> = {
   [K in keyof T]: T[K] extends number ? null : T[K]
 };
