@@ -96,7 +96,13 @@ function returnNumberOrNever(): number | never {
 // The return type of the function is `number`.
 const n: number = returnNumberOrNever();
 ```
-
+### CONDITIONAL/MAPPED TYPES
+Conditional types have one of two types, depending on whether a certain certain condition is true. The condition is evaluated at compile time, not at runtime. TypeScript only supports conditions that use `extends`, like `T extends string`.
+``` typescript
+type ReplaceNumberPropertiesWithNull<T> = {
+  [K in keyof T]: T[K] extends number ? null : T[K]
+};
+```
 
 
 
